@@ -56,7 +56,7 @@ class Grade extends Model
         if ($total >= 85) return 'جيد جداً';
         if ($total >= 75) return 'جيد';
         if ($total >= 65) return 'مقبول';
-        if ($total >= 50) return 'راسب (امتياز)';
+        if ($total >= 50) return 'ناجح';
         return 'راسب';
     }
 

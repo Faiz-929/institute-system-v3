@@ -180,8 +180,10 @@ public function index(Request $request)
         $query = Student::query();
 
         if ($request->filled('search')) {
-            $query->where('name', 'like', '%'.$request->search.'%')
-                ->orWhere('parent_name', 'like', '%'.$request->search.'%');
+            $query->where(function($q) use ($request) {
+                $q->where('name', 'like', '%'.$request->search.'%')
+                  ->orWhere('parent_name', 'like', '%'.$request->search.'%');
+            });
         }
 
         if ($request->filled('major')) {
