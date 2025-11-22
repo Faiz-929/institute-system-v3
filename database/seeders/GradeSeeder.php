@@ -8,9 +8,19 @@ use App\Models\Subject;
 use App\Models\Grade;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use Faker\Generator as Faker;
+
 
 class GradeSeeder extends Seeder
 {
+    
+private Faker $faker;
+
+public function __construct()
+{
+    $this->faker = \Faker\Factory::create();
+}
+
     public function run(): void
     {
         // إنشاء مستخدمين (معلمين)
